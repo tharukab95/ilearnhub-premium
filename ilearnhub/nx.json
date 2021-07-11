@@ -27,6 +27,16 @@
     ]
   },
   "projects": {
+    "admin-portal": {
+      "tags": []
+    },
+    "admin-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin-portal"]
+    },
+    "auth": {
+      "tags": []
+    },
     "tutee-portal": {
       "tags": []
     },
