@@ -14,12 +14,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -31,5 +26,20 @@
       }
     ]
   },
-  "projects": {}
+  "projects": {
+    "tutee-portal": {
+      "tags": []
+    },
+    "tutee-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tutee-portal"]
+    },
+    "tutor-portal": {
+      "tags": []
+    },
+    "tutor-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["tutor-portal"]
+    }
+  }
 }
