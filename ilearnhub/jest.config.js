@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/apps/tutee-portal',
     '<rootDir>/apps/admin-portal',
     '<rootDir>/libs/auth',
+    '<rootDir>/libs/data-models',
   ],
 };
