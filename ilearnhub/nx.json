@@ -27,32 +27,14 @@
     ]
   },
   "projects": {
-    "admin-portal": {
-      "tags": []
-    },
-    "admin-portal-e2e": {
-      "tags": [],
-      "implicitDependencies": ["admin-portal"]
-    },
     "auth": {
       "tags": []
     },
     "data-models": {
       "tags": []
     },
-    "tutee-portal": {
+    "layout": {
       "tags": []
-    },
-    "tutee-portal-e2e": {
-      "tags": [],
-      "implicitDependencies": ["tutee-portal"]
-    },
-    "tutor-portal": {
-      "tags": []
-    },
-    "tutor-portal-e2e": {
-      "tags": [],
-      "implicitDependencies": ["tutor-portal"]
     }
   }
 }

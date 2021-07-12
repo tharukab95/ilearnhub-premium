@@ -1,125 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "admin-portal": {
-      "projectType": "application",
-      "root": "apps/admin-portal",
-      "sourceRoot": "apps/admin-portal/src",
-      "prefix": "ilearnhub",
-      "targets": {
-        "build": {
-          "executor": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/admin-portal",
-            "index": "apps/admin-portal/src/index.html",
-            "main": "apps/admin-portal/src/main.ts",
-            "polyfills": "apps/admin-portal/src/polyfills.ts",
-            "tsConfig": "apps/admin-portal/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/admin-portal/src/favicon.ico",
-              "apps/admin-portal/src/assets"
-            ],
-            "styles": ["apps/admin-portal/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/admin-portal/src/environments/environment.ts",
-                  "with": "apps/admin-portal/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "executor": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "admin-portal:build:production"
-            },
-            "development": {
-              "browserTarget": "admin-portal:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "admin-portal:build"
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/admin-portal/src/**/*.ts",
-              "apps/admin-portal/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/admin-portal"],
-          "options": {
-            "jestConfig": "apps/admin-portal/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "admin-portal-e2e": {
-      "root": "apps/admin-portal-e2e",
-      "sourceRoot": "apps/admin-portal-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/admin-portal-e2e/cypress.json",
-            "tsConfig": "apps/admin-portal-e2e/tsconfig.e2e.json",
-            "devServerTarget": "admin-portal:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "admin-portal:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/admin-portal-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "auth": {
       "projectType": "library",
       "root": "libs/auth",
@@ -166,240 +47,27 @@
         }
       }
     },
-    "tutee-portal": {
-      "projectType": "application",
-      "root": "apps/tutee-portal",
-      "sourceRoot": "apps/tutee-portal/src",
+    "layout": {
+      "projectType": "library",
+      "root": "libs/layout",
+      "sourceRoot": "libs/layout/src",
       "prefix": "ilearnhub",
       "targets": {
-        "build": {
-          "executor": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/layout"],
           "options": {
-            "outputPath": "dist/apps/tutee-portal",
-            "index": "apps/tutee-portal/src/index.html",
-            "main": "apps/tutee-portal/src/main.ts",
-            "polyfills": "apps/tutee-portal/src/polyfills.ts",
-            "tsConfig": "apps/tutee-portal/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/tutee-portal/src/favicon.ico",
-              "apps/tutee-portal/src/assets"
-            ],
-            "styles": ["apps/tutee-portal/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/tutee-portal/src/environments/environment.ts",
-                  "with": "apps/tutee-portal/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "executor": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "tutee-portal:build:production"
-            },
-            "development": {
-              "browserTarget": "tutee-portal:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "tutee-portal:build"
+            "jestConfig": "libs/layout/jest.config.js",
+            "passWithNoTests": true
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/tutee-portal/src/**/*.ts",
-              "apps/tutee-portal/src/**/*.html"
+              "libs/layout/src/**/*.ts",
+              "libs/layout/src/**/*.html"
             ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/tutee-portal"],
-          "options": {
-            "jestConfig": "apps/tutee-portal/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "tutee-portal-e2e": {
-      "root": "apps/tutee-portal-e2e",
-      "sourceRoot": "apps/tutee-portal-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/tutee-portal-e2e/cypress.json",
-            "tsConfig": "apps/tutee-portal-e2e/tsconfig.e2e.json",
-            "devServerTarget": "tutee-portal:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "tutee-portal:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/tutee-portal-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "tutor-portal": {
-      "projectType": "application",
-      "root": "apps/tutor-portal",
-      "sourceRoot": "apps/tutor-portal/src",
-      "prefix": "ilearnhub",
-      "targets": {
-        "build": {
-          "executor": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/tutor-portal",
-            "index": "apps/tutor-portal/src/index.html",
-            "main": "apps/tutor-portal/src/main.ts",
-            "polyfills": "apps/tutor-portal/src/polyfills.ts",
-            "tsConfig": "apps/tutor-portal/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/tutor-portal/src/favicon.ico",
-              "apps/tutor-portal/src/assets"
-            ],
-            "styles": ["apps/tutor-portal/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/tutor-portal/src/environments/environment.ts",
-                  "with": "apps/tutor-portal/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "executor": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "tutor-portal:build:production"
-            },
-            "development": {
-              "browserTarget": "tutor-portal:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "tutor-portal:build"
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/tutor-portal/src/**/*.ts",
-              "apps/tutor-portal/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/tutor-portal"],
-          "options": {
-            "jestConfig": "apps/tutor-portal/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "tutor-portal-e2e": {
-      "root": "apps/tutor-portal-e2e",
-      "sourceRoot": "apps/tutor-portal-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/tutor-portal-e2e/cypress.json",
-            "tsConfig": "apps/tutor-portal-e2e/tsconfig.e2e.json",
-            "devServerTarget": "tutor-portal:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "tutor-portal:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/tutor-portal-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -423,6 +91,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "tutor-portal"
+  }
 }
