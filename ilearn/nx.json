@@ -34,6 +34,9 @@
       "tags": [],
       "implicitDependencies": ["admin-portal"]
     },
+    "auth": {
+      "tags": []
+    },
     "payment-portal": {
       "tags": []
     },
