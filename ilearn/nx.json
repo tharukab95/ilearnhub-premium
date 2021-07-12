@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "payment-portal": {
+      "tags": []
+    },
+    "payment-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["payment-portal"]
+    },
     "tuition-portal": {
       "tags": []
     },
