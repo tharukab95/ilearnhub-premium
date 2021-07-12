@@ -37,6 +37,9 @@
     "auth": {
       "tags": []
     },
+    "data-models": {
+      "tags": []
+    },
     "payment-portal": {
       "tags": []
     },
