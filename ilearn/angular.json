@@ -308,6 +308,56 @@
         }
       }
     },
+    "shared-auth": {
+      "projectType": "library",
+      "root": "libs/shared/auth",
+      "sourceRoot": "libs/shared/auth/src",
+      "prefix": "ilearn",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/auth"],
+          "options": {
+            "jestConfig": "libs/shared/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/auth/src/**/*.ts",
+              "libs/shared/auth/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared-login": {
+      "projectType": "library",
+      "root": "libs/shared/login",
+      "sourceRoot": "libs/shared/login/src",
+      "prefix": "ilearn",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/login"],
+          "options": {
+            "jestConfig": "libs/shared/login/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/login/src/**/*.ts",
+              "libs/shared/login/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "tuition-portal": {
       "projectType": "application",
       "root": "apps/tuition-portal",

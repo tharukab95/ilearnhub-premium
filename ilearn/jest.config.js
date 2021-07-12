@@ -4,5 +4,7 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/apps/admin-portal',
     '<rootDir>/apps/payment-portal',
+    '<rootDir>/libs/shared/auth',
+    '<rootDir>/libs/shared/login',
   ],
 };

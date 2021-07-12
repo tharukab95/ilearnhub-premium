@@ -47,6 +47,12 @@
       "tags": [],
       "implicitDependencies": ["payment-portal"]
     },
+    "shared-auth": {
+      "tags": ["shared"]
+    },
+    "shared-login": {
+      "tags": ["common"]
+    },
     "tuition-portal": {
       "tags": []
     },
