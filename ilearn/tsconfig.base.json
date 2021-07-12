@@ -16,8 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@ilearn/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@ilearn/auth": ["libs/shared/auth/src/index.ts"],
-      "@ilearn/login": ["libs/shared/login/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
