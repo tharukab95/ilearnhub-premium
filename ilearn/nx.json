@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "admin-portal": {
+      "tags": []
+    },
+    "admin-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin-portal"]
+    },
     "payment-portal": {
       "tags": []
     },
