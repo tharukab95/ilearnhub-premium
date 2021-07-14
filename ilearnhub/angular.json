@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "projects": {
+    "ilearn-tuition": {
+      "projectType": "application",
+      "root": "apps/ilearn-tuition",
+      "sourceRoot": "apps/ilearn-tuition/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/ilearn-tuition",
+            "index": "apps/ilearn-tuition/src/index.html",
+            "main": "apps/ilearn-tuition/src/main.ts",
+            "polyfills": "apps/ilearn-tuition/src/polyfills.ts",
+            "tsConfig": "apps/ilearn-tuition/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/ilearn-tuition/src/favicon.ico",
+              "apps/ilearn-tuition/src/assets"
+            ],
+            "styles": ["apps/ilearn-tuition/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/ilearn-tuition/src/environments/environment.ts",
+                  "with": "apps/ilearn-tuition/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ilearn-tuition:build:production"
+            },
+            "development": {
+              "browserTarget": "ilearn-tuition:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ilearn-tuition:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/ilearn-tuition/src/**/*.ts",
+              "apps/ilearn-tuition/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ilearn-tuition"],
+          "options": {
+            "jestConfig": "apps/ilearn-tuition/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ilearn-tuition-e2e": {
+      "root": "apps/ilearn-tuition-e2e",
+      "sourceRoot": "apps/ilearn-tuition-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ilearn-tuition-e2e/cypress.json",
+            "tsConfig": "apps/ilearn-tuition-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ilearn-tuition:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ilearn-tuition:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ilearn-tuition-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "ilearn-tuition"
+}
