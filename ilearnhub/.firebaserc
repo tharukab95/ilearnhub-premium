@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ilearnhub-5e8a6": {
+      "hosting": {
+        "ilearn-tuition": [
+          "ilearnhub-5e8a6"
+        ]
+      }
+    }
+  }
+}
