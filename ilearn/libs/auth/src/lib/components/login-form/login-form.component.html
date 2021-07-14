@@ -1,3 +1,20 @@
-<input #username placeholder="username" type="text">
-<input #password placeholder="password" type="text">
-<button (click)="login({username: username.value, password: password.value})">Login</button>
+<div col>
+  <input #username placeholder="username" type="text">
+  <input #password placeholder="password" type="text">
+  <button (click)="login()">Login</button>
+</div>
+<span class="mt-4">
+  <div col>
+    <button (click)="login()">Google Sign-in</button>
+  </div>
+</span>
+
+
+<!-- <div user | async as user> -->
+
+
+<!-- </div> -->
+<!-- <ng-template>
+  <p>Please login.</p>
+  <button (click)="login()">Login with Google</button>
+</ng-template> -->
