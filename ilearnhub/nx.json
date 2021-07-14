@@ -30,6 +30,13 @@
     "api": {
       "tags": []
     },
+    "student-portal": {
+      "tags": ["student"]
+    },
+    "student-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["student-portal"]
+    },
     "tutor-portal": {
       "tags": []
     },
