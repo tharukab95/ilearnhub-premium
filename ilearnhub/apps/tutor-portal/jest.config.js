@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'ilearn-tuition',
+  displayName: 'tutor-portal',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/ilearn-tuition',
+  coverageDirectory: '../../coverage/apps/tutor-portal',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },

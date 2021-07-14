@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/ilearn-tuition', '<rootDir>/apps/tuition-api'],
+  projects: ['<rootDir>/apps/tutor-portal', '<rootDir>/apps/api'],
 };

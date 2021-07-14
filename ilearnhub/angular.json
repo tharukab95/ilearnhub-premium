@@ -1,31 +1,77 @@
 {
   "version": 1,
   "projects": {
-    "ilearn-tuition": {
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
       "projectType": "application",
-      "root": "apps/ilearn-tuition",
-      "sourceRoot": "apps/ilearn-tuition/src",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tutor-portal": {
+      "projectType": "application",
+      "root": "apps/tutor-portal",
+      "sourceRoot": "apps/tutor-portal/src",
       "prefix": "ilearnhub",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/ilearn-tuition",
-            "index": "apps/ilearn-tuition/src/index.html",
-            "main": "apps/ilearn-tuition/src/main.ts",
-            "polyfills": "apps/ilearn-tuition/src/polyfills.ts",
-            "tsConfig": "apps/ilearn-tuition/tsconfig.app.json",
+            "outputPath": "dist/apps/tutor-portal",
+            "index": "apps/tutor-portal/src/index.html",
+            "main": "apps/tutor-portal/src/main.ts",
+            "polyfills": "apps/tutor-portal/src/polyfills.ts",
+            "tsConfig": "apps/tutor-portal/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/ilearn-tuition/src/favicon.ico",
-              "apps/ilearn-tuition/src/assets"
+              "apps/tutor-portal/src/favicon.ico",
+              "apps/tutor-portal/src/assets"
             ],
-            "styles": [
-              "apps/ilearn-tuition/src/styles.scss"
-            ],
+            "styles": ["apps/tutor-portal/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -44,8 +90,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/ilearn-tuition/src/environments/environment.ts",
-                  "with": "apps/ilearn-tuition/src/environments/environment.prod.ts"
+                  "replace": "apps/tutor-portal/src/environments/environment.ts",
+                  "with": "apps/tutor-portal/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -65,39 +111,37 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ilearn-tuition:build:production"
+              "browserTarget": "tutor-portal:build:production"
             },
             "development": {
-              "browserTarget": "ilearn-tuition:build:development"
+              "browserTarget": "tutor-portal:build:development"
             }
           },
           "defaultConfiguration": "development",
           "options": {
-            "proxyConfig": "apps/ilearn-tuition/proxy.conf.json"
+            "proxyConfig": "apps/tutor-portal/proxy.conf.json"
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ilearn-tuition:build"
+            "browserTarget": "tutor-portal:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/ilearn-tuition/src/**/*.ts",
-              "apps/ilearn-tuition/src/**/*.html"
+              "apps/tutor-portal/src/**/*.ts",
+              "apps/tutor-portal/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/ilearn-tuition"
-          ],
+          "outputs": ["coverage/apps/tutor-portal"],
           "options": {
-            "jestConfig": "apps/ilearn-tuition/jest.config.js",
+            "jestConfig": "apps/tutor-portal/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -107,88 +151,28 @@
         }
       }
     },
-    "ilearn-tuition-e2e": {
-      "root": "apps/ilearn-tuition-e2e",
-      "sourceRoot": "apps/ilearn-tuition-e2e/src",
+    "tutor-portal-e2e": {
+      "root": "apps/tutor-portal-e2e",
+      "sourceRoot": "apps/tutor-portal-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/ilearn-tuition-e2e/cypress.json",
-            "tsConfig": "apps/ilearn-tuition-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ilearn-tuition:serve:development"
+            "cypressConfig": "apps/tutor-portal-e2e/cypress.json",
+            "tsConfig": "apps/tutor-portal-e2e/tsconfig.e2e.json",
+            "devServerTarget": "tutor-portal:serve:development"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ilearn-tuition:serve:production"
+              "devServerTarget": "tutor-portal:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ilearn-tuition-e2e/**/*.{js,ts}"
-            ]
-          }
-        }
-      }
-    },
-    "tuition-api": {
-      "root": "apps/tuition-api",
-      "sourceRoot": "apps/tuition-api/src",
-      "projectType": "application",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
-          "options": {
-            "outputPath": "dist/apps/tuition-api",
-            "main": "apps/tuition-api/src/main.ts",
-            "tsConfig": "apps/tuition-api/tsconfig.app.json",
-            "assets": [
-              "apps/tuition-api/src/assets"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/tuition-api/src/environments/environment.ts",
-                  "with": "apps/tuition-api/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "tuition-api:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/tuition-api/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/tuition-api"
-          ],
-          "options": {
-            "jestConfig": "apps/tuition-api/jest.config.js",
-            "passWithNoTests": true
+            "lintFilePatterns": ["apps/tutor-portal-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -224,5 +208,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "ilearn-tuition"
+  "defaultProject": "tutor-portal"
 }

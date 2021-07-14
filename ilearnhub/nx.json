@@ -27,15 +27,15 @@
     ]
   },
   "projects": {
-    "ilearn-tuition": {
+    "api": {
       "tags": []
     },
-    "ilearn-tuition-e2e": {
+    "tutor-portal": {
+      "tags": []
+    },
+    "tutor-portal-e2e": {
       "tags": [],
-      "implicitDependencies": ["ilearn-tuition"]
-    },
-    "tuition-api": {
-      "tags": []
+      "implicitDependencies": ["tutor-portal"]
     }
   }
 }
