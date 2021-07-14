@@ -30,6 +30,15 @@
     "api": {
       "tags": []
     },
+    "core-auth": {
+      "tags": ["core"]
+    },
+    "core-material": {
+      "tags": ["core"]
+    },
+    "core-ui": {
+      "tags": ["core"]
+    },
     "student-portal": {
       "tags": ["student"]
     },

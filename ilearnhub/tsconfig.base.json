@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ilearnhub/core/auth": ["libs/core/auth/src/index.ts"],
+      "@ilearnhub/core/material": ["libs/core/material/src/index.ts"],
+      "@ilearnhub/core/ui": ["libs/core/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

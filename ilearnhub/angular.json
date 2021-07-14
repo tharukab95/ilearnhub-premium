@@ -51,6 +51,81 @@
         }
       }
     },
+    "core-auth": {
+      "projectType": "library",
+      "root": "libs/core/auth",
+      "sourceRoot": "libs/core/auth/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/auth"],
+          "options": {
+            "jestConfig": "libs/core/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/auth/src/**/*.ts",
+              "libs/core/auth/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "core-material": {
+      "projectType": "library",
+      "root": "libs/core/material",
+      "sourceRoot": "libs/core/material/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/material"],
+          "options": {
+            "jestConfig": "libs/core/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/material/src/**/*.ts",
+              "libs/core/material/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "core-ui": {
+      "projectType": "library",
+      "root": "libs/core/ui",
+      "sourceRoot": "libs/core/ui/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/ui"],
+          "options": {
+            "jestConfig": "libs/core/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/ui/src/**/*.ts",
+              "libs/core/ui/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "student-portal": {
       "projectType": "application",
       "root": "apps/student-portal",
