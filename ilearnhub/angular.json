@@ -76,6 +76,31 @@
         }
       }
     },
+    "core-data-access": {
+      "projectType": "library",
+      "root": "libs/core/data-access",
+      "sourceRoot": "libs/core/data-access/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/data-access"],
+          "options": {
+            "jestConfig": "libs/core/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/data-access/src/**/*.ts",
+              "libs/core/data-access/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "core-material": {
       "projectType": "library",
       "root": "libs/core/material",

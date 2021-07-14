@@ -33,6 +33,9 @@
     "core-auth": {
       "tags": ["core"]
     },
+    "core-data-access": {
+      "tags": []
+    },
     "core-material": {
       "tags": ["core"]
     },
