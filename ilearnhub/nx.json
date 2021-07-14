@@ -33,6 +33,9 @@
     "ilearn-tuition-e2e": {
       "tags": [],
       "implicitDependencies": ["ilearn-tuition"]
+    },
+    "tuition-api": {
+      "tags": []
     }
   }
 }

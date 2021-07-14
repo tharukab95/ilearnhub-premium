@@ -9,7 +9,9 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/ilearn-tuition",
             "index": "apps/ilearn-tuition/src/index.html",
@@ -21,7 +23,9 @@
               "apps/ilearn-tuition/src/favicon.ico",
               "apps/ilearn-tuition/src/assets"
             ],
-            "styles": ["apps/ilearn-tuition/src/styles.scss"],
+            "styles": [
+              "apps/ilearn-tuition/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -67,7 +71,10 @@
               "browserTarget": "ilearn-tuition:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/ilearn-tuition/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -86,7 +93,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/ilearn-tuition"],
+          "outputs": [
+            "coverage/apps/ilearn-tuition"
+          ],
           "options": {
             "jestConfig": "apps/ilearn-tuition/jest.config.js",
             "passWithNoTests": true
@@ -115,7 +124,67 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/ilearn-tuition-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/ilearn-tuition-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "tuition-api": {
+      "root": "apps/tuition-api",
+      "sourceRoot": "apps/tuition-api/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/tuition-api",
+            "main": "apps/tuition-api/src/main.ts",
+            "tsConfig": "apps/tuition-api/tsconfig.app.json",
+            "assets": [
+              "apps/tuition-api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/tuition-api/src/environments/environment.ts",
+                  "with": "apps/tuition-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "tuition-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/tuition-api/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/tuition-api"
+          ],
+          "options": {
+            "jestConfig": "apps/tuition-api/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
