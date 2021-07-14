@@ -31,16 +31,16 @@
       "tags": []
     },
     "core-auth": {
-      "tags": ["core"]
+      "tags": ["tutor", "student"]
     },
     "core-data-access": {
-      "tags": []
+      "tags": ["tutor", "student"]
     },
     "core-material": {
-      "tags": ["core"]
+      "tags": ["tutor", "student"]
     },
     "core-ui": {
-      "tags": ["core"]
+      "tags": ["tutor", "student"]
     },
     "student-portal": {
       "tags": ["student"]
@@ -50,7 +50,7 @@
       "implicitDependencies": ["student-portal"]
     },
     "tutor-portal": {
-      "tags": []
+      "tags": ["tutor"]
     },
     "tutor-portal-e2e": {
       "tags": [],

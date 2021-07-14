@@ -39,9 +39,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 @NgModule({
    imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
+      CommonModule,
+      ReactiveFormsModule,
+      FlexLayoutModule,
       MatAutocompleteModule,
       MatBadgeModule,
       MatButtonModule,
@@ -77,6 +77,8 @@ import { MatTreeModule } from '@angular/material/tree';
       MatTreeModule,
   ],
   exports: [
+      ReactiveFormsModule,
+      FlexLayoutModule,
       MatAutocompleteModule,
       MatBadgeModule,
       MatButtonModule,
@@ -116,13 +118,13 @@ import { MatTreeModule } from '@angular/material/tree';
 })
 export class CoreMaterialModule {
   constructor(public matIconRegistry: MatIconRegistry) {
-    // matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
-}
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+    }
 
-static forRoot(): ModuleWithProviders<CoreMaterialModule> {
+  static forRoot(): ModuleWithProviders<CoreMaterialModule> {
     return {
         ngModule: CoreMaterialModule,
         providers: [MatIconRegistry]
     };
-}
+  }
 }
