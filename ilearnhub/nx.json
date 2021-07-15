@@ -52,12 +52,18 @@
       "tags": [],
       "implicitDependencies": ["student-portal"]
     },
+    "student-portal-feature-profile": {
+      "tags": ["student"]
+    },
     "tutor-portal": {
       "tags": ["tutor"]
     },
     "tutor-portal-e2e": {
       "tags": [],
       "implicitDependencies": ["tutor-portal"]
+    },
+    "tutor-portal-feature-profile": {
+      "tags": ["teacher"]
     }
   }
 }

@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CoreAuthModule } from '@ilearnhub/core/auth';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -13,15 +12,29 @@ const routes: Routes = [
     children: [
       {
         path: 'auth',
-        loadChildren: () => import('@ilearnhub/core/auth').then((esModule) => esModule.CoreAuthModule),
+        loadChildren: () =>
+          import('@ilearnhub/core/auth').then(
+            (esModule) => esModule.CoreAuthModule
+          ),
       },
     ],
   },
-]
+  {
+    path: 'tutor-portal-feature-profile',
+    loadChildren: () =>
+      import('@ilearnhub/tutor-profile').then(
+        (module) => module.TutorPortalFeatureProfileModule
+      ),
+  },
+];
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, CoreAuthModule,
-    RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    CoreAuthModule,
+    RouterModule.forRoot(routes),
+  ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [],

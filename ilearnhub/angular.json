@@ -298,6 +298,31 @@
         }
       }
     },
+    "student-portal-feature-profile": {
+      "projectType": "library",
+      "root": "libs/student-portal/feature/profile",
+      "sourceRoot": "libs/student-portal/feature/profile/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/student-portal/feature/profile"],
+          "options": {
+            "jestConfig": "libs/student-portal/feature/profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/student-portal/feature/profile/src/**/*.ts",
+              "libs/student-portal/feature/profile/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "tutor-portal": {
       "projectType": "application",
       "root": "apps/tutor-portal",
@@ -423,6 +448,31 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/tutor-portal-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "tutor-portal-feature-profile": {
+      "projectType": "library",
+      "root": "libs/tutor-portal/feature/profile",
+      "sourceRoot": "libs/tutor-portal/feature/profile/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tutor-portal/feature/profile"],
+          "options": {
+            "jestConfig": "libs/tutor-portal/feature/profile/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tutor-portal/feature/profile/src/**/*.ts",
+              "libs/tutor-portal/feature/profile/src/**/*.html"
+            ]
           }
         }
       }

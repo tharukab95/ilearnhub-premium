@@ -8,5 +8,7 @@ module.exports = {
     '<rootDir>/libs/core/material',
     '<rootDir>/libs/core/data-access',
     '<rootDir>/libs/core/ui/layout',
+    '<rootDir>/libs/tutor-portal/feature/profile',
+    '<rootDir>/libs/student-portal/feature/profile',
   ],
 };
