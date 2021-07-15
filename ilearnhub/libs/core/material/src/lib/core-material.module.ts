@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule }     from '@angular/forms';
-import 'hammerjs';
+// import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';

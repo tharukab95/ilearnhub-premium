@@ -18,7 +18,7 @@
       "@ilearnhub/core/auth": ["libs/core/auth/src/index.ts"],
       "@ilearnhub/core/data-access": ["libs/core/data-access/src/index.ts"],
       "@ilearnhub/core/material": ["libs/core/material/src/index.ts"],
-      "@ilearnhub/core/ui": ["libs/core/ui/src/index.ts"]
+      "@ilearnhub/core/ui/layout": ["libs/core/ui/layout/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

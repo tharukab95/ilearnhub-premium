@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'core-ui',
-  preset: '../../../jest.preset.js',
+  displayName: 'core-ui-layout',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/core/ui',
+  coverageDirectory: '../../../../coverage/libs/core/ui/layout',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },

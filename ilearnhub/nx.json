@@ -42,6 +42,9 @@
     "core-ui": {
       "tags": ["tutor", "student"]
     },
+    "core-ui-layout": {
+      "tags": ["student", "teacher"]
+    },
     "student-portal": {
       "tags": ["student"]
     },

@@ -151,6 +151,31 @@
         }
       }
     },
+    "core-ui-layout": {
+      "projectType": "library",
+      "root": "libs/core/ui/layout",
+      "sourceRoot": "libs/core/ui/layout/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core/ui/layout"],
+          "options": {
+            "jestConfig": "libs/core/ui/layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/core/ui/layout/src/**/*.ts",
+              "libs/core/ui/layout/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "student-portal": {
       "projectType": "application",
       "root": "apps/student-portal",
@@ -293,7 +318,10 @@
               "apps/tutor-portal/src/favicon.ico",
               "apps/tutor-portal/src/assets"
             ],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "apps/tutor-portal/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/tutor-portal/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {

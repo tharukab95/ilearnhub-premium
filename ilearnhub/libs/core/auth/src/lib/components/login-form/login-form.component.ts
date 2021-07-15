@@ -11,15 +11,15 @@ export interface Authenticate {
   styleUrls: ['./login-form.component.sass']
 })
 export class LoginFormComponent implements OnInit {
-  @Output() loginFormChange = new EventEmitter<Authenticate>();
+  // @Output() loginFormChange = new EventEmitter<Authenticate>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  login(authenticate: Authenticate) {
-    this.loginFormChange.emit(authenticate);
-  }
+  // login(authenticate: Authenticate) {
+  //   this.loginFormChange.emit(authenticate);
+  // }
 
 }
