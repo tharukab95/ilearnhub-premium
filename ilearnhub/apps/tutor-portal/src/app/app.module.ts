@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CoreAuthModule } from '@ilearnhub/core/auth';
+import { CoreUiLayoutModule } from '@ilearnhub/core/ui/layout';
+import { CoreMaterialModule } from '@ilearnhub/core/material';
 
 const routes: Routes = [
   {
@@ -11,16 +13,23 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       {
-        path: 'auth',
+        path: 'tutor/dashboard',
         loadChildren: () =>
-          import('@ilearnhub/core/auth').then(
-            (esModule) => esModule.CoreAuthModule
+          import('@ilearnhub/core/ui/layout').then(
+            (esModule) => esModule.CoreUiLayoutModule
           ),
       },
     ],
   },
+  // {
+  //   path: 'tutor',
+  //   loadChildren: () =>
+  //     import('@ilearnhub/core/ui/layout').then(
+  //       (module) => module.CoreUiLayoutModule
+  //     ),
+  // },
   {
-    path: 'tutor-portal-feature-profile',
+    path: 'tutor',
     loadChildren: () =>
       import('@ilearnhub/tutor-profile').then(
         (module) => module.TutorPortalFeatureProfileModule
@@ -33,7 +42,10 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     CoreAuthModule,
-    RouterModule.forRoot(routes),
+    CoreUiLayoutModule,
+    CoreMaterialModule,
+    RouterModule.forRoot(routes, { initialNavigation: 'enabled' })
+    // RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent],

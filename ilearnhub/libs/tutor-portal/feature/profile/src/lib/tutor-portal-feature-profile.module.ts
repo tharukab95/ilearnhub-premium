@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
+      /*{path: 'profile', pathMatch: 'full', component: InsertYourComponentHere}*/
     ]),
   ],
 })

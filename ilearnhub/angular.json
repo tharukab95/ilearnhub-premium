@@ -452,6 +452,31 @@
         }
       }
     },
+    "tutor-portal-feature-dashboard": {
+      "projectType": "library",
+      "root": "libs/tutor-portal/feature/dashboard",
+      "sourceRoot": "libs/tutor-portal/feature/dashboard/src",
+      "prefix": "ilearnhub",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tutor-portal/feature/dashboard"],
+          "options": {
+            "jestConfig": "libs/tutor-portal/feature/dashboard/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tutor-portal/feature/dashboard/src/**/*.ts",
+              "libs/tutor-portal/feature/dashboard/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "tutor-portal-feature-profile": {
       "projectType": "library",
       "root": "libs/tutor-portal/feature/profile",

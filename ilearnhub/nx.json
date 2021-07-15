@@ -62,6 +62,9 @@
       "tags": [],
       "implicitDependencies": ["tutor-portal"]
     },
+    "tutor-portal-feature-dashboard": {
+      "tags": ["teacher"]
+    },
     "tutor-portal-feature-profile": {
       "tags": ["teacher"]
     }

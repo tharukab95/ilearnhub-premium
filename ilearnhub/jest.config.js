@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/libs/core/ui/layout',
     '<rootDir>/libs/tutor-portal/feature/profile',
     '<rootDir>/libs/student-portal/feature/profile',
+    '<rootDir>/libs/tutor-portal/feature/dashboard',
   ],
 };

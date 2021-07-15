@@ -4,7 +4,8 @@ import { RouterModule, Route, Routes } from '@angular/router';
 import { CoreMaterialModule } from '@ilearnhub/core/material';
 import { LoginComponent } from './containers/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component'
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 export const coreAuthRoutes: Route[] = [{ path: 'login', component: LoginComponent }];
 
@@ -14,11 +15,6 @@ const routes: Routes = [
     pathMatch: 'full',
     component: LoginComponent,
   },
-  {
-    path: 'success',
-    pathMatch: 'full',
-    component: LoginFormComponent,
-  },
 ];
 
 @NgModule({
@@ -26,7 +22,15 @@ const routes: Routes = [
     CoreMaterialModule,
     AuthModule.forRoot({
       domain: 'dev-sjnp1nxu.us.auth0.com',
-      clientId: 'bWMNLJaKFhFuowYxNkGmzSwy8ZmO7777'
+      clientId: 'bWMNLJaKFhFuowYxNkGmzSwy8ZmO7777',
+      redirectUri: window.location.origin,
+      scope: 'openid profile email read:posts write:posts delete:posts',
+      // The AuthHttpInterceptor configuration
+      httpInterceptor: {
+        allowedList: [
+          '/api/*',
+        ],
+      },
     })],
   declarations: [
     LoginComponent,
@@ -35,6 +39,13 @@ const routes: Routes = [
   exports: [
     LoginComponent,
     LoginFormComponent
-  ]
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    },
+  ],
 })
 export class CoreAuthModule {}
