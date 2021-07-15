@@ -293,7 +293,7 @@
               "apps/tutor-portal/src/favicon.ico",
               "apps/tutor-portal/src/assets"
             ],
-            "styles": ["apps/tutor-portal/src/styles.scss"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css", "apps/tutor-portal/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
