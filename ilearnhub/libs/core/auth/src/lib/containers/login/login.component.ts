@@ -19,4 +19,8 @@ export class LoginComponent implements OnInit {
     this.auth.loginWithRedirect();
   }
 
+  logout() {
+    this.auth.logout({ returnTo: document.location.origin })
+  }
+
 }

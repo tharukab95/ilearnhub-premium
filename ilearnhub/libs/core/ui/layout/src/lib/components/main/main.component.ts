@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'ilearnhub-main',
   templateUrl: './main.component.html',

@@ -7,10 +7,12 @@ import { AuthService } from '@auth0/auth0-angular';
 @Component({
   selector: 'ilearnhub-main-nav-menu',
   templateUrl: './main-nav-menu.component.html',
-  styleUrls: ['./main-nav-menu.component.css']
+  styleUrls: ['./main-nav-menu.component.scss']
 })
 export class MainNavMenuComponent {
   @Output() mainNavMenuComponentChange = new EventEmitter<string>();
+  isMainNavClosed = false;
+  selectedMenuItem = 'Dashboard'
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -20,7 +22,12 @@ export class MainNavMenuComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, public auth: AuthService) {}
 
+  toggleMenu() {
+    this.isMainNavClosed == !this.isMainNavClosed;
+  }
+
   navigateTo(feature: string) {
+    this.selectedMenuItem = feature;
     this.mainNavMenuComponentChange.emit(feature);
     // switch (feature) {
     //   case 'dashboard':
